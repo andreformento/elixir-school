@@ -41,4 +41,10 @@ defmodule MyAppWeb.Endpoint do
     signing_salt: "FVsb38B0"
 
   plug MyAppWeb.Router
+
+  plug Corsica,
+    origins: "http://localhost:8080",
+    log: [rejected: :error, invalid: :warn, accepted: :debug]
+
+  plug MyAppWeb.Router
 end
